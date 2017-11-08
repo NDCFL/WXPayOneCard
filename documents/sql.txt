@@ -1,0 +1,17 @@
+CREATE TABLE users (
+  id bigint primary key identity(1,1),
+  userName varchar(20) NOT NULL,
+  userCard varchar(30) NOT NULL,
+  userMoney decimal(10,0) NOT NULL,
+  headIcon varchar(150) DEFAULT NULL,
+  phone varchar(11) DEFAULT NULL,
+  userid varchar(50) DEFAULT NULL,
+  openid varchar(50)
+) 
+CREATE TABLE orderitems (
+  id bigint identity(1,1) primary key,
+  userCard varchar(30) NOT NULL,
+  money decimal(10,0) NOT NULL,
+  status int NOT NULL,
+  createTime datetime DEFAULT getdate(),
+) 

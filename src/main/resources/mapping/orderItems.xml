@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cfl.dao.OrderItemsDAO">
+  <resultMap id="orderItemsMap" type="orderItemsVo"></resultMap>
+  <select id="queryById" resultMap="orderItemsMap" parameterType="java.lang.String">
+      select * from orderItems where id = #{id}
+  </select>
+  <delete id="delete" parameterType="java.lang.String">
+        delete from orderItems where id = #{id}
+  </delete>
+  <select id="pagelist" resultMap="orderItemsMap">
+        select * from orderItems
+  </select>
+    <select id="listPage" resultMap="orderItemsMap">
+        select top(#{pageSize}) * from orderitems where userCard=#{cardId} and id not in (select top(#{startPage}) id from orderitems where userCard=#{cardId})
+    </select>
+    <select id="findList" resultMap="orderItemsMap">
+        select * from orderItems where userCard=#{userCard}
+    </select>
+    <select id="count" resultType="int" parameterType="string">
+        select count(*) from orderItems where userCard=#{userCard}
+    </select>
+  <insert id="add" parameterType="orderItemsVo">
+        insert into orderItems (userCard,money,status) values (#{userCard},#{money},#{status})
+  </insert>
+</mapper>

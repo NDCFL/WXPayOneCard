@@ -1,0 +1,17 @@
+openid:wxe8f7f9126c81b727---------obDi30cmUTYkCONmbfv-7r8w7Tdo
+appsecret:98ce4257f865d01ae85c23a0d958389d
+corpid：wx6a9926ec04c21d7e
+域名：cz.livzondiagnostics.com
+外网地址：183.57.19.250:23344
+内网：192.168.86.241
+远程端口23344???
+80端口也开通了
+密码 server2008.
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6a9926ec04c21d7e&redirect_uri=http://localhost:8080/result.jsp&response_type=code&scope=SCOPE&agentid=AGENTID&state=STATE#wechat_redirect
+
+AgentId = 1000004
+Secret = XinX6SMJajtWFb0A91hWasFgWybpRVXCVrSA7rIAc30
+
+商户id：1359941402
+
+支付密钥：Livzondiagnosticslivzon1998a1989

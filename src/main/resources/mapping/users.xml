@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cfl.dao.UsersDAO">
+  <resultMap id="usersMap" type="usersVo"></resultMap>
+  <select id="queryById" resultMap="usersMap" parameterType="long">
+      select * from users where id = #{id}
+  </select>
+    <select id="queryByCardId" resultMap="usersMap" parameterType="string">
+        select * from users where userCard = #{CardId}
+    </select>
+    <select id="queryByUserId" resultMap="usersMap" parameterType="string">
+        select * from users where userid = #{userId}
+    </select>
+    <select id="queryByOpenId" resultMap="usersMap" parameterType="string">
+        select * from users where openid = #{openid}
+    </select>
+    <select id="checkUserId" parameterType="string" resultType="int" >
+        select count(*) from users where userid=#{userid}
+    </select>
+    <select id="getUser" resultMap="usersMap" parameterType="java.lang.String">
+        select * from users where userName = #{userName}
+    </select>
+  <delete id="delete" parameterType="java.lang.String">
+        delete from users where id = #{id}
+  </delete>
+  <select id="pagelist" resultMap="usersMap">
+        select * from users
+  </select>
+    <select id="count" resultType="int" parameterType="string">
+        select count(*) from users where userCard=#{userCard}
+    </select>
+    <select id="checkName" resultType="int" parameterType="string">
+        select count(*) from users where userName=#{userName}
+    </select>
+  <insert id="add" parameterType="usersVo">
+        insert into users (userName,userCard,userMoney,headIcon,phone,userid,openid) values (#{userName},#{userCard},#{userMoney},#{headIcon},#{phone},#{userid},#{openid})
+  </insert>
+  <update id="update" parameterType="usersVo">
+        update users set userCard=#{userCard},userName=#{userName} where id = #{id}
+  </update>
+    <update id="updateCard" parameterType="usersVo">
+        update users set userCard=#{userCard} where id = #{id} and userName=#{userName}
+    </update>
+    <update id="updateMoney">
+        update users set userMoney=userMoney+#{money} where id = #{id}
+    </update>
+    <update id="updateOpenId" parameterType="usersVo">
+        update users set openid=#{openid} where id = #{id}
+    </update>
+</mapper>
